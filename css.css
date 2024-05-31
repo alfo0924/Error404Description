@@ -1,0 +1,39 @@
+html {
+    background: black;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /*color: #10d210;*/
+    /*Traditional ChinesefontSet */
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+/* Color of the text - you can change it as you need. */
+div {
+    color: red;
+}
+/* These are the properties applied to div that has the "innerDiv" class - you can change it as you need. */
+
+.innerDiv {
+    position: absolute;
+
+    height: 120vh;
+    /*left: 25%;*/
+
+    top: 55px;
+    background-color: rgba(56, 56, 56, 0.77);
+    font-size: x-large;
+    color: rgba(127, 255, 0, 0.84);
+
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    /*margin:0 ;*/
+}

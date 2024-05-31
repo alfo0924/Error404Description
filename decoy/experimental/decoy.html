@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta https-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix rain animation with message</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="custom.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<style>
+
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    html, body {
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 100;
+        background: #000;
+        width: 100%;
+        height: 100%;
+        color: #10d210;
+        overflow: hidden;
+    }
+    body .content {
+        position: absolute !important;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .random {
+        max-width: 500px;
+        margin: auto;
+        border: 2px solid;
+        padding: 15px;
+    }
+    .random > span {
+        width: 30px;
+        display: inline-block;
+    }
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mask > img {
+        filter: opacity(0.6) brightness(0.1);
+        width: 100%;
+        max-width: 680px;
+        margin: auto;
+    }
+
+</style>
+
+
+
+
+
+
+<div class="mask"> <img src="anonymous_mask.png"> </div>
+<canvas id="matrix"></canvas>
+<div class="content">
+    <div class="random">
+        <!-- Here text wich you want to add in counter -->
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+        <span class="str ltr">0</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+    window.addEventListener("load", eventWindowLoaded, false);
+    function eventWindowLoaded() {
+        canvasApp();
+    }
+    function canvasSupport(e) {
+        return !!e.getContext;
+    }
+
+    function canvasApp() {
+        var canvas = document.getElementById("matrix");
+
+        if (!canvasSupport(matrix)) {
+            return;
+        }
+
+        var ctx = canvas.getContext("2d");
+        var w = (canvas.width = window.innerWidth);
+        var h = (canvas.height = window.innerHeight);
+        var yPosition = Array(300).join(0).split("");
+
+
+        function runMatrix() {
+            if (typeof Game_Interval != "undefined") clearInterval(Game_Interval);
+            Game_Interval = setInterval(drawScreen, 33)
+        }
+
+        function drawScreen() {
+            ctx.fillStyle = "rgba(0,0,0,.06)";
+            ctx.fillRect(0, 0, w, h);
+            ctx.fillStyle = "#0f0";
+            ctx.font = "15px IBM Plex Sans";
+            yPosition.map(function(y, index) {
+                text = String.fromCharCode(1e2 + Math.random() * 33);
+                x = index * 10 + 10;
+                ctx.fillText(text, x, y);
+                if (y > 100 + Math.random() * 1e4) {
+                    yPosition[index] = 0;
+                }else {
+                    yPosition[index] = y + 10;
+                }
+            });
+        }
+        runMatrix();
+    }
+
+
+
+
+    $(document).ready(function(){
+        var $randomString = $(".str");
+        var $timer = 30;
+        var $it;
+        var $data = 0;
+        var $index;
+        var $change;
+        var $letters = ["y","o","u"," ","A","r","e"," ","H","a","c","k","e","d"];
+        //var $letters = ["S","t","a","c","k","f","i","n","d","o","v","e","r"];
+
+        $randomString.each(function(){
+            $change = Math.round(Math.random()*100);
+            $(this).attr('data-change', $change)
+        });
+
+        function random(){
+            return Math.round(Math.random()*9);
+        }
+        function select(){
+            return Math.round(Math.random()*$randomString.length+1);
+        }
+
+        function value(){
+            $(".str:nth-child("+select()+")").html(''+random()+'');
+            $(".str:nth-child("+select()+")").attr('data-number', $data);
+            $data++;
+
+            $randomString.each(function(){
+                if (parseInt($(this).attr('data-number')) > parseInt($(this).attr('data-change')) ) {
+                    $index = $('.ltr').index(this);
+                    $(this).html($letters[$index]);
+                    $(this).removeClass('str');
+                }
+            });
+
+        };
+
+        $it = setInterval(value, $timer);
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

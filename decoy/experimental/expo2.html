@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <link rel="stylesheet" href="./styles.css">-->
+    <title>  Err0r 4o4 Description  </title>
+
+
+    <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://img.icons8.com/color-glass/480w/github--v1.png">
+
+
+<!--    CDN import-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<style>
+
+    html {
+        background: black;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        /*color: #10d210;*/
+
+
+
+        /*Traditional ChinesefontSet */
+        font-family: "Noto Sans TC", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+
+    }
+
+
+    /* Color of the text - you can change it as you need. */
+
+    div {
+        color: red;
+
+    }
+
+
+    /* These are the properties applied to div that has the "innerDiv" class - you can change it as you need. */
+
+    .innerDiv {
+        position: absolute;
+
+        height: 120vh;
+        /*left: 25%;*/
+
+        top: 55px;
+        background-color: rgba(56, 56, 56, 0.77);
+        font-size: x-large;
+        color: rgba(127, 255, 0, 0.84);
+
+        align-content: center;
+        align-items: center;
+        text-align: center;
+
+        /*margin:0 ;*/
+
+
+    }
+
+
+
+</style>
+
+
+
+<body style="background-color: #1e1e1e">
+
+
+<!--<canvas id="Matrix" style="width: 100%; height: 100%;"></canvas>-->
+<!--<script src="./index.js"></script>-->
+
+
+
+
+
+
+
+<canvas id="Matrix" style="width: 100%; height: 130vh; "></canvas>
+
+<div id="wrapper"  >
+    <div class="innerDiv">
+
+
+<!--        add current time-->
+        <div id="counter" style="color: rgba(127, 255, 0, 0.84); text-align: center ;" >
+            <p>
+                現在時間 PRESENT TIME :
+            </p>
+            <p id="current-time"></p>
+        </div>
+
+
+
+
+        <span style="font-size: xx-large ; color: rgba(10,236,16,0.92) ; text-shadow: 2px 3px 5px "> 設計理念Inspiration</span>
+        <br/>
+        <p>
+
+            參照電影  <a href="https://youtu.be/9ix7TUGVYIo?si=8uCiI_JzksbRc1E3" style="text-decoration: none ; list-style-type: none  ; color:rgba(75,229,78,0.92);text-shadow: 2px 3px 3px " >  <駭客任務 THE MATRIX> </a>   中的代碼/機器語言都是以 綠色 出現  <br>
+            在結合 託管原始碼/版控的GitHub  <br>
+            以網頁 技術問題 錯誤404 作為方向 <br>
+
+            <br>
+            In the movie <a href="https://youtu.be/9ix7TUGVYIo?si=8uCiI_JzksbRc1E3" style="text-decoration: none ; list-style-type: none  ; color:rgba(75,229,78,0.92);text-shadow: 2px 3px 3px " >THE MATRIX</a> there are some scene that demonstrate the codes which  indicates  code in color green ,in order to combine the element of matrix with GitHub ,setting GitHub 404error technical issue pages as development goal;
+
+
+        <hr style="border-color: #00c000">
+            網頁物件中加入彩蛋與互動式動畫目的是為了提高網頁可玩性
+        <br>
+            In order to increase the joy of viewing the 404 pages,fragments of Easter eggs and scroll-up and down transition has added
+                <br>
+
+        <hr style="border-color: #00c000">
+            <h1 style="font-size: xx-large ; color: rgba(10,236,16,0.92) ; text-shadow: 2px 3px 5px ">原始SourceCode碼</h1>
+            <br>
+            <a href="https://github.com/ChunChieLin0924/error404/blob/master/index.html"  style="text-decoration: none ; list-style-type: none  ; color:rgba(3,206,7,0.92); "  >GitHub作Erro404Page品  </a>
+            <br>
+            <br>
+             <a href="https://github.com/ChunChieLin0924/Error404Description/blob/master/index.html"  style="text-decoration: none ; list-style-type: none  ; color:rgba(3,206,7,0.92); "  > Error404作品Description說明 </a>
+
+
+
+
+
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    //matrix function
+    const canvas = document.getElementById('Matrix');
+    const context = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const katakana = '011010101101011000101';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const rainDrops = [];
+
+    for (let x = 0; x < columns; x++) {
+        rainDrops[x] = 1;
+    }
+
+    const draw = () => {
+        context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        context.fillStyle = '#0F0';
+        context.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < rainDrops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                rainDrops[i] = 0;
+            }
+            rainDrops[i]++;
+        }
+    };
+
+    setInterval(draw, 30);
+
+
+    //time function
+
+    function updateTime() {
+        // Get current time
+        var currentTime = new Date();
+        // Format time as desired, for example: HH:MM:SS
+        var formattedTime = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+        // Update the content of the HTML element
+        document.getElementById('current-time').innerHTML = formattedTime;
+    }
+    // Call the function once to display time immediately
+    updateTime();
+    // Update time every second (1000 milliseconds)
+    setInterval(updateTime, 1000);
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

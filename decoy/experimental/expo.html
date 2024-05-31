@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <link rel="stylesheet" href="./styles.css">-->
+    <title></title>
+</head>
+
+<style>
+
+    html {
+        background: black;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+
+    /* Color of the text - you can change it as you need. */
+
+    div {
+        color: red;
+    }
+
+
+    /* These are the properties applied to div that has the "innerDiv" class - you can change it as you need. */
+
+    .innerDiv {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background-color: rgba(56, 56, 56, 0.77);
+        font-size: x-large;
+        color:chartreuse;
+
+    }
+    </style>
+<body style="background-color: #1e1e1e">
+
+
+<canvas id="Matrix" style="width: 100%; height: 100%;"></canvas>
+<!--<script src="./index.js"></script>-->
+
+
+
+
+
+
+
+<canvas id="Matrix" style="width: 100%; height: 100%;"></canvas>
+
+<div id="wrapper">
+    <div class="innerDiv">
+        <span>This is an title example:</span>
+        <br/>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+
+
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const canvas = document.getElementById('Matrix');
+    const context = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const katakana = '011010101101011000101';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const rainDrops = [];
+
+    for (let x = 0; x < columns; x++) {
+        rainDrops[x] = 1;
+    }
+
+    const draw = () => {
+        context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        context.fillStyle = '#0F0';
+        context.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < rainDrops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                rainDrops[i] = 0;
+            }
+            rainDrops[i]++;
+        }
+    };
+
+    setInterval(draw, 30);
+</script>
+
+
+
+
+
+
+</body>
+</html>
