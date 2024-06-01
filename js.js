@@ -42,16 +42,13 @@ setInterval(draw, 30);
 
 
 //time function
-
-function updateTime() {
-    // Get current time
-    var currentTime = new Date();
-    // Format time as desired, for example: HH:MM:SS
-    var formattedTime = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
-    // Update the content of the HTML element
-    document.getElementById('current-time').innerHTML = formattedTime;
+function updateDateTime() {
+    var currentDate = new Date();
+    var milliseconds = currentDate.getMilliseconds();
+    var dateString = currentDate.toLocaleDateString();
+    var timeString = currentDate.toLocaleTimeString();
+    document.getElementById("clock").innerHTML = dateString + " <br> " + timeString + milliseconds ;
 }
-// Call the function once to display time immediately
-updateTime();
-// Update time every second (1000 milliseconds)
-setInterval(updateTime, 1000);
+
+// Update the date time every millisecond
+setInterval(updateDateTime, 0.5);
