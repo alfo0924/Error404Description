@@ -42,13 +42,14 @@ setInterval(draw, 30);
 
 
 //time function
-function updateDateTime() {
-    var currentDate = new Date();
-    var milliseconds = currentDate.getMilliseconds();
-    var dateString = currentDate.toLocaleDateString();
-    var timeString = currentDate.toLocaleTimeString();
-    document.getElementById("clock").innerHTML = dateString + " <br> " + timeString + milliseconds ;
+function updateClock() {
+    const now = new Date();
+    var dateString = now.toLocaleDateString();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+    document.getElementById('clock').innerText = `${dateString} \t\t\t\t\t\t\t\t\t\t\t\t\t${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
 
-// Update the date time every millisecond
-setInterval(updateDateTime, 0.5);
+setInterval(updateClock, 0.5);
