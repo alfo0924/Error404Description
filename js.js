@@ -49,7 +49,7 @@ function updateClock() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
-    document.getElementById('clock').innerText = `${dateString} \t\t\t\t\t\t\t\t\t\t\t\t\t${hours}:${minutes}:${seconds}:${milliseconds}`;
+    document.getElementById('clock').innerText = `${dateString}             ${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
 
 setInterval(updateClock, 0.5);
