@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3c7016b-3117-4e43-b873-b181f2438f85" name="Changes" comment="v1.2">
+    <list default="true" id="b3c7016b-3117-4e43-b873-b181f2438f85" name="Changes" comment="v2.3 updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +51,7 @@
       <workItem from="1717171964262" duration="365000" />
       <workItem from="1717212315400" duration="5417000" />
       <workItem from="1717410665144" duration="651000" />
-      <workItem from="1717428796562" duration="647000" />
+      <workItem from="1717428796562" duration="1407000" />
     </task>
     <task id="LOCAL-00001" summary="v1">
       <option name="closed" value="true" />
@@ -100,7 +101,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717429371071</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v1.2">
+      <option name="closed" value="true" />
+      <created>1717429572555</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717429572555</updated>
+    </task>
+    <task id="LOCAL-00008" summary="v2.3 updated">
+      <option name="closed" value="true" />
+      <created>1717429690169</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717429690169</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1" />
     <MESSAGE value="v1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2" />
+    <MESSAGE value="v2.3 updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.3 updated" />
   </component>
 </project>
